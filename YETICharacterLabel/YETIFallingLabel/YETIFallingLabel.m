@@ -15,6 +15,10 @@
 #pragma mark - Overrides
 - (void)setAttributedText:(NSAttributedString *)attributedText
 {
+    if (!attributedText) {
+        attributedText = [[NSAttributedString alloc] init];
+    }
+    
     [super setAttributedText:attributedText];
     [self animateOutWithCompletion:^(BOOL finished) {
         [self animateInWithCompletion:nil];
